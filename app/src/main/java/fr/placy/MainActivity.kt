@@ -8,11 +8,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import fr.placy.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import okhttp3.OkHttpClient
 
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var bottomNav: BottomNavigationView
+    lateinit var client: OkHttpClient
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

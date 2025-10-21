@@ -10,19 +10,17 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Photo de profil -->
         <ImageView
             android:id="@+id/profileImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/placy_icon"
             android:scaleType="centerCrop"
             android:background="@drawable/ic_launcher_foreground" />
 
-        <!-- Nom -->
         <TextView
-            android:id="@+id/profileName"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nom d'utilisateur"
@@ -30,7 +28,6 @@
             android:textStyle="bold"
             android:layout_marginTop="10dp"/>
 
-        <!-- Statut -->
         <TextView
             android:id="@+id/profileStatus"
             android:layout_width="wrap_content"
@@ -40,7 +37,6 @@
             android:textColor="#777"
             android:layout_marginTop="5dp"/>
 
-        <!-- Bouton de modification -->
         <Button
             android:id="@+id/editProfileButton"
             android:layout_width="wrap_content"
