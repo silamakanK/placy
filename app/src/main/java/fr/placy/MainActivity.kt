@@ -6,16 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import fr.placy.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import okhttp3.OkHttpClient
+import fr.placy.SupabaseManager.supabase
+import io.github.jan.supabase.postgrest.from
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var bottomNav: BottomNavigationView
-    lateinit var client: OkHttpClient
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +34,20 @@ class MainActivity : AppCompatActivity() {
                     openFragment(HomeFragment())
                     true
                 }
+
                 R.id.nav_profile -> {
                     openFragment(ProfileFragment())
                     true
                 }
+
                 else -> false
             }
         }
+
+        GlobalScope.launch {
+            testSupabase()
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -52,4 +60,12 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
+
+    private suspend fun testSupabase() {
+        val place = supabase.from("places").select {
+            limit(count = 1)
+        }.decodeSingle<Place>()
+        println("Place: $place")
+    }
 }
+
