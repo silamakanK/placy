@@ -53,4 +53,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("io.github.jan-tennert.supabase:gotrue-kt:2.4.2")   // Auth
+    implementation("io.github.jan-tennert.supabase:postgrest-kt:2.4.2") // DB
+    implementation("io.github.jan-tennert.supabase:storage-kt:2.4.2")   // (optionnel)
 }
