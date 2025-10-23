@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Placy</string>
+    <string name="error_no_profile">Profil introuvable</string>
+    <string name="placeholder_name">Nom non défini</string>
+    <string name="placeholder_bio">Aucune bio disponible</string>
+    <string name="placeholder_status">Statut : %1$s</string>
+
 </resources>
