@@ -18,14 +18,14 @@ class PlaceChat {
     constructor()
 
     @OptIn(SupabaseExperimental::class, ExperimentalTime::class)
-    suspend fun init(placeId: UUID) {
+    suspend fun init(placeId: UUID, chatType: ChatRoomType = ChatRoomType.visitors) {
         val singleFlow: Flow<PlaceMessage> = supabase
             .from("place_messages")
             .selectSingleValueAsFlow(
                 primaryKey = PlaceMessage::id,
             ) {
                 and {
-                    eq("chat_type", ChatRoomType.visitors)
+                    eq("chat_type", chatType)
                     eq("place_id", placeId)
                 }
             }

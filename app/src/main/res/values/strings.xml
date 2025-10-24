@@ -8,4 +8,8 @@
     <string name="chat_title">Messages</string>
     <string name="chat_hint">Write a message...</string>
     <string name="chat_send">Send</string>
+    <string name="chat_place_select_hint">Select a place</string>
+    <string name="chat_type_visitors">Visitors</string>
+    <string name="chat_type_interested">Interested</string>
+    <string name="chat_place_placeholder_name">Unnamed place</string>
 </resources>
