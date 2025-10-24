@@ -1,6 +1,7 @@
 package fr.placy
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import fr.placy.SupabaseManager.supabase
 import io.github.jan.supabase.annotations.SupabaseExperimental
+import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.query.filter.FilterOperation
 import io.github.jan.supabase.postgrest.query.filter.FilterOperator
@@ -94,12 +96,43 @@ class ChatFragment : Fragment() {
 
     private fun handleSendMessage() {
         val text = messageInput?.text?.toString()?.trim().orEmpty()
-        if (selectedPlaceId == null) return
+        val placeId = selectedPlaceId ?: return
         if (text.isBlank()) return
 
-        // TODO: connect to Supabase mutation when send is implemented.
-        messageInput?.text = null
-        updateSendButtonState()
+        sendButton?.isEnabled = false
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            val senderId = try {
+                supabase.auth.currentSessionOrNull()?.user?.id
+            } catch (e: Exception) {
+                Log.e(TAG, "Unable to resolve sender id", e)
+                null
+            }
+
+            if (senderId.isNullOrBlank()) {
+                updateSendButtonState()
+                return@launch
+            }
+
+            val sendResult = runCatching {
+                supabase.from("place_messages").insert(
+                    mapOf(
+                        "place_id" to placeId.toString(),
+                        "chat_type" to selectedChatType.name,
+                        "body" to text,
+                        "sender_id" to senderId
+                    )
+                )
+            }
+
+            if (sendResult.isSuccess) {
+                messageInput?.setText("")
+            } else {
+                Log.e(TAG, "Failed to send message", sendResult.exceptionOrNull())
+            }
+
+            updateSendButtonState()
+        }
     }
 
     override fun onDestroyView() {
@@ -248,5 +281,9 @@ class ChatFragment : Fragment() {
                 rv.scrollToPosition(chatMessages.lastIndex)
             }
         }
+    }
+
+    companion object {
+        private const val TAG = "ChatFragment"
     }
 }
