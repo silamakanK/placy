@@ -19,14 +19,14 @@
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="janedoe@example.com"
         android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mot de passe"
+        android:hint="password"
         android:inputType="textPassword"/>
 
     <Button
@@ -34,13 +34,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Se connecter"
-        android:layout_marginTop="16dp"/>
+        android:background="@drawable/button_background"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"/>
 
     <TextView
         android:id="@+id/goToSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pas encore de compte ? S'inscrire"
-        android:textColor="#009688"
-        android:layout_marginTop="20dp"/>
+        android:textColor="@color/link_color"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"/>
 </LinearLayout>

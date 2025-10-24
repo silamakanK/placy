@@ -33,4 +33,18 @@ object ProfileRepository {
             null
         }
     }
+
+    suspend fun updateAvatarUrl(publicUrl: String) {
+        val supabase = fr.placy.SupabaseManager.supabase
+        val user = supabase.auth.currentUserOrNull() ?: return
+
+        supabase.from("profiles").update(
+            mapOf("avatar_url" to publicUrl)
+        ) {
+            filter {
+                eq("id", user.id)
+            }
+        }
+    }
+
 }

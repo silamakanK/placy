@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Placy" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Couleurs principales -->
-
+    <style name="Base.Theme.Placy" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/true_pink</item>
+        <item name="colorAccent">@color/navy_pink</item>
     </style>
 
     <style name="Theme.Placy" parent="Base.Theme.Placy" />

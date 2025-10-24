@@ -1,188 +1,327 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/soft_gray"
-android:padding="16dp">
-
-<LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <!-- HEADER -->
-    <TextView
-        android:text="Mon compte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/dark"
-        android:layout_marginBottom="12dp"
-        android:layout_gravity="center_horizontal"/>
-
-    <!-- Identité -->
-    <TextView
-        android:text="Identité"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/navy_pink"
-        android:layout_marginTop="16dp"/>
-
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        android:elevation="1dp">
+        android:layout_height="80dp"
+        android:background="@color/true_pink"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
-            android:id="@+id/textFullName"
-            android:layout_width="match_parent"
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nom complet"
-            android:textStyle="bold"
-            android:textColor="@color/dark"/>
+            android:text="Mon compte"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
+    <!-- AVATAR + INFOS UTILISATEUR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <!-- Avatar rond -->
+        <FrameLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp">
+
+            <!-- Cercle de fond -->
+            <View
+                android:id="@+id/avatarBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_background" />
+
+            <!-- Image avatar (si présente) -->
+            <ImageView
+                android:id="@+id/imageAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+
+            <!-- Lettre initiale (par défaut) -->
+            <TextView
+                android:id="@+id/textInitial"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="SK"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <!-- Bouton de modification (icône edit) -->
+            <ImageButton
+                android:id="@+id/btnEditAvatar"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="4dp"
+                android:background="@drawable/circle_background"
+                android:padding="6dp"
+                android:src="@drawable/ic_edit_foreground"
+                app:tint="@color/dark"
+                android:contentDescription="Modifier la photo de profil" />
+        </FrameLayout>
+
+        <!-- Nom d'utilisateur -->
         <TextView
             android:id="@+id/textUsername"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="username"
-            android:textColor="@color/dark"
-            android:layout_marginTop="2dp"/>
-    </LinearLayout>
-
-    <!-- Connexion -->
-    <TextView
-        android:text="Connexion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/navy_pink"
-        android:layout_marginTop="24dp"/>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        android:elevation="1dp">
-
-        <TextView
-            android:text="Téléphone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/dark"/>
-        <TextView
-            android:id="@+id/textPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+33 7 58 40 21 29"
-            android:textColor="@color/dark"
-            android:layout_marginBottom="8dp"/>
-
-        <TextView
-            android:text="E-mail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/dark"/>
-        <TextView
-            android:id="@+id/textEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="utilisateur@exemple.com"
-            android:textColor="@color/dark"
-            android:layout_marginBottom="8dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mot de passe"
-            android:textStyle="bold"
-            android:textColor="@color/dark"/>
-        <TextView
-            android:text="••••••••"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/gray"/>
-    </LinearLayout>
-
-    <!-- Autres infos -->
-    <TextView
-        android:text="Profil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/navy_pink"
-        android:layout_marginTop="24dp"/>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        android:elevation="1dp">
-
-        <TextView
-            android:text="Bio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/dark"/>
-        <TextView
-            android:id="@+id/textBio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Aucune bio disponible"
             android:textColor="@color/gray"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
 
+        <!-- Nom complet -->
         <TextView
-            android:text="Statut"
-            android:layout_width="match_parent"
+            android:id="@+id/textFullNameTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Silamakan Kamissoko"
             android:textStyle="bold"
-            android:textColor="@color/dark"/>
+            android:textColor="@color/dark"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Bio -->
         <TextView
-            android:id="@+id/textStatus"
-            android:layout_width="match_parent"
+            android:id="@+id/textBioTop"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Disponible"
-            android:textColor="@color/gray"/>
+            android:text="Développeur Full Stack passionné par la création d’expériences intuitives."
+            android:textColor="@color/gray"
+            android:gravity="center"
+            android:layout_marginTop="6dp"
+            android:paddingHorizontal="24dp"
+            android:textAlignment="center" />
     </LinearLayout>
 
-    <!-- Déconnexion -->
-    <LinearLayout
-        android:id="@+id/btnLogout"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:backgroundTint="@color/true_pink"
-        android:background="@drawable/rounded_button_pink"
-        android:layout_marginTop="32dp"
-        android:padding="16dp"
+
+    <!-- CONTENU SCROLLABLE -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
 
-        <TextView
-            android:text="Déconnexion"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:orientation="vertical">
+
+            <!-- Identité -->
+            <TextView
+                android:text="Identité"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/true_pink"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="#F7F7F7"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:text="Nom complet"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="username"
+                    android:id="@+id/textFullName"
+                    android:textColor="@color/gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Téléphone"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="+33 7 58 40 21 29"
+                    android:id="@+id/textPhone"
+                    android:textColor="@color/gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Connexion -->
+            <TextView
+                android:text="Connexion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/true_pink"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="#F7F7F7"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+
+
+                <TextView
+                    android:text="E-mail"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="utilisateur@exemple.com"
+                    android:id="@+id/textEmail"
+                    android:textColor="@color/gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Mot de passe"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="••••••••"
+                    android:textColor="@color/gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Profil -->
+            <TextView
+                android:text="Profil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/true_pink"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="#F7F7F7"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:text="Bio"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="Aucune bio disponible"
+                    android:id="@+id/textBio"
+                    android:textColor="@color/gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Statut"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="Disponible"
+                    android:id="@+id/textStatus"
+                    android:textColor="@color/gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Bouton Déconnexion -->
+            <LinearLayout
+                android:id="@+id/btnLogout"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_logout_foreground"
+                    app:tint="@color/red"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:text="Déconnexion"
+                    android:textColor="@color/red"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Loader pendant upload -->
+    <FrameLayout
+        android:id="@+id/uploadLoaderContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progressBarUpload"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:indeterminate="true"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/textUploading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mise à jour du profil..."
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>
-</ScrollView>

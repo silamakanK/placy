@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
                 } catch (e: Exception) {
-                    Toast.makeText(this@LoginActivity, "Username ou mot de passe invalide : ${e.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@LoginActivity, "Username ou mot de passe invalide !", Toast.LENGTH_LONG).show()
                 }
             }
         }

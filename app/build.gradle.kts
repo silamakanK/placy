@@ -56,4 +56,7 @@ dependencies {
     implementation("io.github.jan-tennert.supabase:gotrue-kt:2.4.2")   // Auth
     implementation("io.github.jan-tennert.supabase:postgrest-kt:2.4.2") // DB
     implementation("io.github.jan-tennert.supabase:storage-kt:2.4.2")   // (optionnel)
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+
 }
