@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="chat_bubble_self">#FF4F6DFF</color>
+    <color name="chat_bubble_other">#FFE8EBF7</color>
+    <color name="chat_bubble_text_primary">#FF1F1F1F</color>
+    <color name="chat_bubble_text_on_self">#FFFFFFFF</color>
 </resources>
