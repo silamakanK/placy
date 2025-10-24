@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.DialogTitle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import fr.placy.repository.ProfileRepository
@@ -39,6 +40,7 @@ import java.util.UUID
    private lateinit var avatarImage: ImageView
    private lateinit var textInitial: TextView
    private lateinit var editAvatarBtn: ImageButton
+   private lateinit var textFullNameTitle: TextView
    private val PICK_IMAGE_REQUEST = 1001
    private lateinit var uploadLoader: View
 
@@ -63,6 +65,7 @@ import java.util.UUID
       textInitial = view.findViewById(R.id.textInitial)
       editAvatarBtn = view.findViewById(R.id.btnEditAvatar)
       uploadLoader = view.findViewById(R.id.uploadLoaderContainer)
+      textFullNameTitle = view.findViewById(R.id.textFullNameTitle)
 
 
          //Gestion du bonton de logout
@@ -105,6 +108,7 @@ import java.util.UUID
             usernameView.text = profile.username ?: "username"
             bioView.text = profile.bio ?: "Aucune bio disponible"
             statusView.text = profile.status_message ?: "Aucun statut"
+            textFullNameTitle.text = profile.full_name ?: "Nom non défini"
 
             val fullName = profile.full_name ?: "Utilisateur"
             val avatarUrl = profile.avatar_url ?: ""

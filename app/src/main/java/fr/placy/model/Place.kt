@@ -1,10 +1,14 @@
-package fr.placy
+package fr.placy.model
 
-import java.util.UUID
-import java.time.OffsetDateTime
+import fr.placy.GeoPoint
+import fr.placy.GeoPointFlexibleSerializer
+import fr.placy.OffsetDateTimeSerializer
+import fr.placy.UUIDSerializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.buildJsonObject
+import java.time.OffsetDateTime
+import java.util.UUID
 
 @Serializable
 data class Place(

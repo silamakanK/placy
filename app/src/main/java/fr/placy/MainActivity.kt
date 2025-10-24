@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_place -> {
-                    openFragment(ProfileFragment())
+                    openFragment(PlaceFragment())
                     true
                 }
 
