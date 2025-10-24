@@ -1,68 +1,188 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#FAFAFA">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/soft_gray"
+android:padding="16dp">
 
-    <LinearLayout
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- HEADER -->
+    <TextView
+        android:text="Mon compte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/dark"
+        android:layout_marginBottom="12dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- Identité -->
+    <TextView
+        android:text="Identité"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_pink"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        android:elevation="1dp">
 
-        <!-- Photo de profil -->
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerCrop"
-            android:background="@drawable/ic_launcher_foreground" />
-
-        <!-- Nom -->
         <TextView
-            android:id="@+id/profileName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nom d'utilisateur"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"/>
-
-        <!-- Statut -->
-        <TextView
-            android:id="@+id/profileStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🌍 Explorer le monde"
-            android:textSize="16sp"
-            android:textColor="#777"
-            android:layout_marginTop="5dp"/>
-
-        <!-- Bouton de modification -->
-        <Button
-            android:id="@+id/editProfileButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modifier mon profil"
-            android:layout_marginTop="10dp"/>
-
-        <!-- Lieux visités -->
-        <TextView
-            android:id="@+id/visitedPlacesTitle"
+            android:id="@+id/textFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lieux visités"
-            android:textSize="18sp"
+            android:text="Nom complet"
             android:textStyle="bold"
-            android:layout_marginTop="30dp"/>
+            android:textColor="@color/dark"/>
 
-        <LinearLayout
-            android:id="@+id/visitedPlacesContainer"
+        <TextView
+            android:id="@+id/textUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"/>
+            android:text="username"
+            android:textColor="@color/dark"
+            android:layout_marginTop="2dp"/>
     </LinearLayout>
+
+    <!-- Connexion -->
+    <TextView
+        android:text="Connexion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_pink"
+        android:layout_marginTop="24dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        android:elevation="1dp">
+
+        <TextView
+            android:text="Téléphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/dark"/>
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+33 7 58 40 21 29"
+            android:textColor="@color/dark"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:text="E-mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/dark"/>
+        <TextView
+            android:id="@+id/textEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="utilisateur@exemple.com"
+            android:textColor="@color/dark"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mot de passe"
+            android:textStyle="bold"
+            android:textColor="@color/dark"/>
+        <TextView
+            android:text="••••••••"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"/>
+    </LinearLayout>
+
+    <!-- Autres infos -->
+    <TextView
+        android:text="Profil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/navy_pink"
+        android:layout_marginTop="24dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        android:elevation="1dp">
+
+        <TextView
+            android:text="Bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/dark"/>
+        <TextView
+            android:id="@+id/textBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aucune bio disponible"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:text="Statut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/dark"/>
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disponible"
+            android:textColor="@color/gray"/>
+    </LinearLayout>
+
+    <!-- Déconnexion -->
+    <LinearLayout
+        android:id="@+id/btnLogout"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:backgroundTint="@color/true_pink"
+        android:background="@drawable/rounded_button_pink"
+        android:layout_marginTop="32dp"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Déconnexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
 </ScrollView>
